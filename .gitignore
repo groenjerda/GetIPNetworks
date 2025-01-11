@@ -182,7 +182,7 @@ ip_networks/build/
 ip_networks/project.egg-info/
 ip_networks/setup.py
 
-*init-user-db.sql
+*init-user-db copy.sql
 
 *.json
 *jsonl
