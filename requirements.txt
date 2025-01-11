@@ -1,0 +1,7 @@
+Scrapy==2.11.1
+scrapyd==1.5.0
+scrapyd-client==2.0.0
+SQLAlchemy==2.0.36
+python-dotenv
+pydantic-settings
+psycopg2-binary

@@ -169,3 +169,20 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+
+# custom
+
+.vscode/
+dbs/
+eggs/
+logs/
+
+ip_networks/build/
+ip_networks/project.egg-info/
+ip_networks/setup.py
+
+*init-user-db.sql
+
+*.json
+*jsonl

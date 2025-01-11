@@ -1,0 +1,9 @@
+venv/
+.vscode/
+database/
+dbs/
+eggs/
+logs/
+ip_networks/build/
+ip_networks/project.egg-info/
+ip_networks/setup.py

@@ -1,0 +1,44 @@
+services:
+  db:
+    image: postgres
+    restart: always
+    shm_size: 128mb
+    volumes:
+      - db_volume:/var/lib/postgresql/data/
+    ports:
+      - 5432:5432
+    networks:
+      - my_network
+    environment:
+      POSTGRES_USER: scrapy_user
+      POSTGRES_PASSWORD: scrapy_user_pass
+      POSTGRES_DB: scrapy_db
+
+  scrapyd_service:
+    container_name: scrapyd_container
+    restart: always
+    depends_on:
+      - db
+    build:
+      context: ../
+      dockerfile: ./scrapy_infra/Dockerfile
+    image: scrapyd_image
+    command: >
+      sh -c "
+      cd ip_networks && scrapyd-deploy --build-egg=ip_networks.egg &&
+      mkdir -p /src/eggs/ip_networks &&
+      cp ip_networks.egg /src/eggs/ip_networks/1.egg &&
+      scrapyd
+      "
+    ports:
+      - 6800:6800
+    networks:
+      - my_network
+
+
+volumes:
+  db_volume:
+
+networks:
+  my_network:
+    external: true
