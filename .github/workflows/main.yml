@@ -13,7 +13,7 @@ jobs:
       - name: Create archive with project
         run: |
           mkdir ../GetIPNetworksProd
-          cp -TR . ../GetIPNetworks
+          cp -TR . ../GetIPNetworksProd
           tar -cvf getipnetworks.tar ../GetIPNetworksProd/
 
       - name: Copy archive to server
