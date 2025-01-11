@@ -39,10 +39,12 @@ jobs:
           key: ${{ secrets.SERVER_KEY }}
           script: |
             cd /home/projects/
+            docker compose -f GetIPNetworksProd/scrapy_infra/docker-compose.yaml down
             tar -xf getipnetworks.tar && rm getipnetworks.tar
             rm -f GetIPNetworksProd/.env && touch GetIPNetworksProd/.env
             echo DATABASE_URL="${{ secrets.DATABASE_URL }}" >> GetIPNetworksProd/.env
             echo "${{ secrets.INIT_USER_DB_SQL }}" >> GetIPNetworksProd/scrapy_infra/docker-entrypoint-initdb.d/init-user-db.sql
+            docker network ls | grep -w my_network || docker network create my_network
 
   send_message:
     runs-on: ubuntu-latest
