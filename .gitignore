@@ -186,3 +186,5 @@ ip_networks/setup.py
 
 *.json
 *jsonl
+
+docker-compose-local.yaml

@@ -28,6 +28,7 @@ SPIDER_MODULES = ["ip_networks.spiders"]
 NEWSPIDER_MODULE = "ip_networks.spiders"
 
 
+LOG_LEVEL = 'WARNING'
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "ip_networks (+http://www.yourdomain.com)"
 
